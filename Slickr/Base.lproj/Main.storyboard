@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="PFH-Fh-5Wn">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Photo List View Controller-->
+        <scene sceneID="AsA-4f-x04">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rqi-9d-ceT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="PFH-Fh-5Wn" customClass="PhotoListViewController" customModule="Slickr" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="308-lR-DGJ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Photo" id="zP3-b8-VQI" customClass="PhotoCell" customModule="Slickr" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="600" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zP3-b8-VQI" id="gyK-dD-aua">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dAR-fo-TDp">
+                                            <rect key="frame" x="8" y="8" width="584" height="92"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="dAR-fo-TDp" firstAttribute="leading" secondItem="gyK-dD-aua" secondAttribute="leadingMargin" id="38Q-gA-OJu"/>
+                                        <constraint firstItem="dAR-fo-TDp" firstAttribute="trailing" secondItem="gyK-dD-aua" secondAttribute="trailingMargin" id="9ay-iP-p2C"/>
+                                        <constraint firstItem="dAR-fo-TDp" firstAttribute="top" secondItem="gyK-dD-aua" secondAttribute="topMargin" id="MTU-X6-aZi"/>
+                                        <constraint firstItem="dAR-fo-TDp" firstAttribute="bottom" secondItem="gyK-dD-aua" secondAttribute="bottom" id="lse-e2-bC9"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="photoImageView" destination="dAR-fo-TDp" id="2sO-cb-2HD"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoResults" id="RnW-Pi-zIR">
+                                <rect key="frame" x="0.0" y="128" width="600" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RnW-Pi-zIR" id="Z0M-VY-NYo">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No results found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqj-AV-etC">
+                                            <rect key="frame" x="237" y="39" width="127" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="cqj-AV-etC" firstAttribute="centerX" secondItem="Z0M-VY-NYo" secondAttribute="centerX" id="Q2H-4P-Sv8"/>
+                                        <constraint firstItem="cqj-AV-etC" firstAttribute="centerY" secondItem="Z0M-VY-NYo" secondAttribute="centerY" id="qjY-lO-mdb"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="PFH-Fh-5Wn" id="9nI-bV-Nii"/>
+                            <outlet property="delegate" destination="PFH-Fh-5Wn" id="vaK-Zy-Axg"/>
+                        </connections>
+                    </tableView>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="R6J-eA-7om">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="351" y="411"/>
+        </scene>
+        <!--Photo Detail View Controller-->
+        <scene sceneID="tZ4-vj-JHh">
+            <objects>
+                <viewController storyboardIdentifier="PhotoDetail" id="xZL-9F-ijD" customClass="PhotoDetailViewController" customModule="Slickr" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EnG-sj-6pC"/>
+                        <viewControllerLayoutGuide type="bottom" id="fVr-DY-AMK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="opb-Lx-RB9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XDW-bQ-4Dg">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1C-ox-99P">
+                                <rect key="frame" x="536" y="20" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="4Tb-MS-bjd"/>
+                                    <constraint firstAttribute="height" constant="44" id="Oqw-ne-McB"/>
+                                </constraints>
+                                <color key="tintColor" red="0.94901960780000005" green="0.95294117649999999" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="Times"/>
+                                <connections>
+                                    <action selector="dismissViewController:" destination="xZL-9F-ijD" eventType="touchUpInside" id="mB5-3c-o8B"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fVr-DY-AMK" firstAttribute="top" secondItem="XDW-bQ-4Dg" secondAttribute="bottom" priority="750" id="04m-0z-fXd"/>
+                            <constraint firstItem="XDW-bQ-4Dg" firstAttribute="leading" secondItem="opb-Lx-RB9" secondAttribute="leading" id="KwP-ka-BCp"/>
+                            <constraint firstAttribute="trailing" secondItem="XDW-bQ-4Dg" secondAttribute="trailing" id="Zzf-Gb-qf1"/>
+                            <constraint firstItem="XDW-bQ-4Dg" firstAttribute="top" secondItem="opb-Lx-RB9" secondAttribute="top" id="cXT-p5-uiP"/>
+                            <constraint firstItem="E1C-ox-99P" firstAttribute="top" secondItem="EnG-sj-6pC" secondAttribute="bottom" id="fpK-aY-PJi"/>
+                            <constraint firstItem="E1C-ox-99P" firstAttribute="trailing" secondItem="opb-Lx-RB9" secondAttribute="trailingMargin" id="ktO-Ce-IzC"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="photoImageBottomConstraint" destination="04m-0z-fXd" id="yO5-1G-JjF"/>
+                        <outlet property="photoImageLeadingConstraint" destination="KwP-ka-BCp" id="fh6-wQ-IXh"/>
+                        <outlet property="photoImageTopConstraint" destination="cXT-p5-uiP" id="USn-OH-O0s"/>
+                        <outlet property="photoImageTrailingConstraint" destination="Zzf-Gb-qf1" id="M1U-KL-hpQ"/>
+                        <outlet property="photoImageView" destination="XDW-bQ-4Dg" id="UEf-BT-wKw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vhl-Oj-7Jf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1128" y="411"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Times" width="20" height="20"/>
+    </resources>
+</document>
